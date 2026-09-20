@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="mcp-audit">
+  <rect width="32" height="32" rx="6" fill="#14161B"/>
+  <g fill="none" stroke="#93A0FF" stroke-width="2" stroke-linecap="square">
+    <path d="M8 9h10a4 4 0 0 1 0 8H8"/>
+    <path d="M8 17h10a4 4 0 0 1 0 8H8"/>
+    <path d="M24 9v16" stroke-dasharray="3 3"/>
+  </g>
+</svg>
