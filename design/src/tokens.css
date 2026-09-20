@@ -1,0 +1,156 @@
+/*
+ * Semantic tokens only. Components must never reference a primitive directly.
+ * Plan: ../../DESIGN.md
+ */
+
+:root {
+  /* Primitives: raw ramps. Never referenced by a component. */
+  --grey-000: #ffffff;
+  --grey-050: #f6f7f9;
+  --grey-100: #eef0f4;
+  --grey-200: #e3e6ec;
+  --grey-400: #9aa2b2;
+  --grey-500: #5c6472;
+  --grey-700: #2a2f3a;
+  --grey-850: #161922;
+  --grey-900: #0f1116;
+  --grey-950: #14161b;
+
+  --indigo-500: #2f3fb4;
+  --indigo-300: #93a0ff;
+
+  --red-600: #b4232a;
+  --red-300: #ff8a80;
+  --amber-700: #8a5a00;
+  --amber-400: #e3a008;
+  --forest-700: #1f6b47;
+  --forest-400: #5bd39a;
+
+  /* Spacing scale, 4px grid. Every gap and inset comes from here. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Type scale. Five steps, no ad-hoc sizes. */
+  --text-2xs: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+
+  /* Radius set. Three values, deliberately not one. */
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-pill: 999px;
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-prose: 1.7;
+  --tracking-label: 0.09em;
+
+  --border-width: 1px;
+  --focus-width: 2px;
+  --target-min: 44px;
+  --measure: 68ch;
+
+  /* Semantic layer: light. */
+  --paper: var(--grey-050);
+  --surface: var(--grey-000);
+  --surface-sunken: var(--grey-100);
+  --ink: var(--grey-950);
+  --ink-muted: var(--grey-500);
+  --hairline: var(--grey-200);
+  --accent: var(--indigo-500);
+  --accent-ink: var(--grey-000);
+  --accent-quiet: #e8eafb;
+  --risk: var(--red-600);
+  --risk-quiet: #fbeaea;
+  --warn: var(--amber-700);
+  --warn-quiet: #f8f1e2;
+  --ok: var(--forest-700);
+  --ok-quiet: #e8f2ec;
+  --focus: var(--indigo-500);
+  --shadow-1: 0 1px 2px rgba(20, 22, 27, 0.06);
+  --shadow-2: 0 8px 24px -12px rgba(20, 22, 27, 0.28);
+  --scrim: rgba(20, 22, 27, 0.45);
+}
+
+/* Dark is re-picked, never inverted. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: var(--grey-900);
+    --surface: var(--grey-850);
+    --surface-sunken: #12151d;
+    --ink: #e7e9ef;
+    --ink-muted: var(--grey-400);
+    --hairline: #262b36;
+    --accent: var(--indigo-300);
+    --accent-ink: var(--grey-900);
+    --accent-quiet: #1c2140;
+    --risk: var(--red-300);
+    --risk-quiet: #2c1a1d;
+    --warn: var(--amber-400);
+    --warn-quiet: #2a2214;
+    --ok: var(--forest-400);
+    --ok-quiet: #14261e;
+    --focus: var(--indigo-300);
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 12px 28px -16px rgba(0, 0, 0, 0.7);
+    --scrim: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Explicit choice wins over the system preference in both directions. */
+:root[data-theme="dark"] {
+  --paper: var(--grey-900);
+  --surface: var(--grey-850);
+  --surface-sunken: #12151d;
+  --ink: #e7e9ef;
+  --ink-muted: var(--grey-400);
+  --hairline: #262b36;
+  --accent: var(--indigo-300);
+  --accent-ink: var(--grey-900);
+  --accent-quiet: #1c2140;
+  --risk: var(--red-300);
+  --risk-quiet: #2c1a1d;
+  --warn: var(--amber-400);
+  --warn-quiet: #2a2214;
+  --ok: var(--forest-400);
+  --ok-quiet: #14261e;
+  --focus: var(--indigo-300);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 12px 28px -16px rgba(0, 0, 0, 0.7);
+  --scrim: rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme="light"] {
+  --paper: var(--grey-050);
+  --surface: var(--grey-000);
+  --surface-sunken: var(--grey-100);
+  --ink: var(--grey-950);
+  --ink-muted: var(--grey-500);
+  --hairline: var(--grey-200);
+  --accent: var(--indigo-500);
+  --accent-ink: var(--grey-000);
+  --accent-quiet: #e8eafb;
+  --risk: var(--red-600);
+  --risk-quiet: #fbeaea;
+  --warn: var(--amber-700);
+  --warn-quiet: #f8f1e2;
+  --ok: var(--forest-700);
+  --ok-quiet: #e8f2ec;
+  --focus: var(--indigo-500);
+  --shadow-1: 0 1px 2px rgba(20, 22, 27, 0.06);
+  --shadow-2: 0 8px 24px -12px rgba(20, 22, 27, 0.28);
+  --scrim: rgba(20, 22, 27, 0.45);
+}
